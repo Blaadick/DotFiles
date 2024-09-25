@@ -1,6 +1,8 @@
 (defpoll battery-charge :interval "20s" "cat /sys/class/power_supply/BAT0/capacity")
 (defpoll battery-status :interval "20s" "cat /sys/class/power_supply/BAT0/status")
 (defpoll brightness :interval "20s" "/home/blaadick/test.sh")
+(defpoll time :interval "0.5s" "date +%T")
+(defpoll date :interval "24h" "date +%Y.%m.%d")
 
 (defwidget battery-charge []
     (circular-progress 
@@ -13,7 +15,7 @@
 )
 
 (defwidget brightness []
-    (circular-progress 
+    (circular-progress
         :value brightness
         :class "circular-bar"
         :thickness 4
@@ -22,7 +24,17 @@
     )
 )
 
-(defwindow bar 
+(defwidget time []
+    (label
+        :class "date"
+        :text "${time}
+${date}"
+        :xalign 1
+        :justify "right"
+    )
+)
+
+(defwindow bar
     :monitor 0
     :stacking "fg"
     :exclusive true
@@ -35,5 +47,6 @@
     (box
         (battery-charge)
         (brightness)
+        (time)
     )
 )

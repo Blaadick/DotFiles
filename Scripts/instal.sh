@@ -4,6 +4,8 @@ sudo pacman -Rns dolphin vim htop
 
 flatpak install flathub net.blockbench.Blockbench
 
+sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"
+
 cd /var/lib
 sudo git clone https://aur.archlinux.org/yay.git
 cd yay
