@@ -1,5 +1,5 @@
 sudo pacman -Syu
-sudo pacman -S hyprpaper wl-clipboard brightnessctl git grim slurp flatpak nwg-look blueman code nautilus firefox torbrowser-launcher discord steam prismlauncher btop ttf-jetbrains-mono
+sudo pacman -S hyprpaper wl-clipboard brightnessctl playerctl git grim slurp flatpak nwg-look blueman code nautilus firefox torbrowser-launcher discord steam prismlauncher btop ttf-jetbrains-mono
 sudo pacman -Rns dolphin vim htop
 
 flatpak install flathub net.blockbench.Blockbench

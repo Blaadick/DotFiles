@@ -1,8 +1,19 @@
 $background: #0f0f0f;
 //$background: #FFFFFF;
 
-.date {
+* {
     font-family: JetbrainsMono
+    
+}
+
+.battery-bar {
+    color: #00ffaa;
+    background-color: #003322;
+}
+
+.brightness-bar {
+    color: #ff9900;
+    background-color: #331f00;
 }
 
 .bar {

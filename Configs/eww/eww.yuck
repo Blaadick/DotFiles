@@ -1,38 +1,64 @@
-(defpoll battery-charge :interval "20s" "cat /sys/class/power_supply/BAT0/capacity")
-(defpoll battery-status :interval "20s" "cat /sys/class/power_supply/BAT0/status")
-(defpoll brightness :interval "20s" "/home/blaadick/test.sh")
-(defpoll time :interval "0.5s" "date +%T")
+(deflisten media :initial "Nothing" "playerctl -F metadata -f '{{ artist }} - {{ title }}' || true")
+(defpoll brightness :interval "1s" "~/brightness.sh")
+(defpoll time :interval "1s" "date +%T")
 (defpoll date :interval "24h" "date +%Y.%m.%d")
 
-(defwidget battery-charge []
+
+
+(defwidget battery []
     (circular-progress 
-        :value battery-charge
-        :class "circular-bar"
+        :value {EWW_BATTERY["BAT0"].capacity}
+        :class "battery-bar"
         :thickness 4
-        :tooltip "Charge: ${battery-charge}% [${battery-status}]"
-        "${battery-charge}"
+        :tooltip "Charge: ${EWW_BATTERY["BAT0"].capacity}% [${EWW_BATTERY["BAT0"].status}]"
+        "${EWW_BATTERY["BAT0"].capacity}"
     )
 )
 
 (defwidget brightness []
     (circular-progress
         :value brightness
-        :class "circular-bar"
+        :class "brightness-bar"
         :thickness 4
         :tooltip "Brightness: ${brightness}%"
-        "B"
+        "${brightness}"
     )
 )
 
-(defwidget time []
+(defwidget date-time []
     (label
-        :class "date"
+        :class "date-time"
         :text "${time}
 ${date}"
-        :xalign 1
         :justify "right"
     )
 )
+
+
+
+(defwidget left []
+    (box 
+        :halign "start"
+        :width 100
+        (battery)
+        (brightness)
+    )
+)
+
+(defwidget center []
+    (box :halign "center"
+        "${media}"
+    )
+)
+
+(defwidget right []
+    (box :halign "end"
+        :width 100
+        (date-time)
+    )
+)
+
+
 
 (defwindow bar
     :monitor 0
@@ -45,8 +71,8 @@ ${date}"
         :anchor "bottom center"
     )
     (box
-        (battery-charge)
-        (brightness)
-        (time)
+        (left)
+        (center)
+        (right)
     )
 )
