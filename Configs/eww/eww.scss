@@ -1,23 +1,36 @@
-$background: #0f0f0f;
-//$background: #FFFFFF;
+$bacground: #000000;
+$first-accent: #ffffff;
+
+// $bacground: #ffffff;
+// $first-accent: #000000;
 
 * {
-    font-family: JetbrainsMono
-    
+    all: unset;
+    font-family: JetbrainsMono;
+    color: $first-accent;
+}
+
+tooltip {
+    background-color: rgba($bacground, 0.8);
+    border-radius: 10;
 }
 
 .battery-bar {
-    color: #00ffaa;
-    background-color: #003322;
+    background-color: rgba($first-accent, 0.15);
 }
 
 .brightness-bar {
-    color: #ff9900;
-    background-color: #331f00;
+    background-color: rgba($first-accent, 0.15);
 }
 
 .bar {
-    background-color: $background;
+    background-color: rgba($bacground, 0.29);
+    border-radius: 10;
+    padding: 0.4em;
+}
+
+.second-bar {
+    background-color: rgba($bacground, 0.29);
     border-radius: 10;
     padding: 0.4em;
 }

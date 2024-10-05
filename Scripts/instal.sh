@@ -12,7 +12,7 @@ cd yay
 makepkg -si
 cd
 
-yay -S eww jetbrains-toolbox youtube-music-bin hyprpicker
+yay -S eww hyprpicker jetbrains-toolbox youtube-music-bin aseprite
 
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 omf install bobthefish
