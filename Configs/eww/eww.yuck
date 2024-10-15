@@ -1,27 +1,40 @@
 (deflisten media :initial "" "playerctl -F metadata -f '{{ artist }} - {{ title }}' || true")
-(defpoll brightness :interval "1s" "~/brightness.sh")
+(defpoll headset-battery-capacity :interval "30s" "~/system.sh --headset-battery") 
+(defpoll brightness :interval "30s" "~/system.sh --brightness")
 (defpoll time :interval "1s" "date +%T")
 (defpoll date :interval "24h" "date +%Y.%m.%d")
 
 
 
+(defwidget brightness []
+    (circular-progress
+        :value brightness
+        :class "circular-bar"
+        :thickness 4
+        :tooltip "Brightness: ${brightness}%"
+        "${brightness}"
+    )
+)
+
 (defwidget battery []
-    (circular-progress 
+    (circular-progress
         :value {EWW_BATTERY["BAT0"].capacity}
-        :class "battery-bar"
+        :class "circular-bar"
         :thickness 4
         :tooltip "Charge: ${EWW_BATTERY["BAT0"].capacity}% [${EWW_BATTERY["BAT0"].status}]"
+        :width 48
         "${EWW_BATTERY["BAT0"].capacity}"
     )
 )
 
-(defwidget brightness []
+(defwidget headset-battery []
     (circular-progress
-        :value brightness
-        :class "brightness-bar"
+        :value headset-battery-capacity
+        :class "circular-bar"
         :thickness 4
-        :tooltip "Brightness: ${brightness}%"
-        "${brightness}"
+        :tooltip "Charge: ${headset-battery-capacity}%"
+        :visible { headset-battery-capacity == -25 ? false : true }
+        "${headset-battery-capacity}"
     )
 )
 
@@ -36,22 +49,24 @@ ${date}"
 
 
 (defwidget left []
-    (box 
+    (box
         :halign "start"
-        :width 100
-        (battery)
         (brightness)
+        (battery)
+        (headset-battery)
     )
 )
 
 (defwidget center []
-    (box :halign "center"
+    (box
+        :halign "center"
         "${media}"
     )
 )
 
 (defwidget right []
-    (box :halign "end"
+    (box
+        :halign "end"
         :width 100
         (date-time)
     )
