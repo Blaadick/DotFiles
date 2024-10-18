@@ -2,6 +2,7 @@ isNsfw=false
 
 if [ $# = 0 ]; then
     echo There is no parameters
+    exit
 fi
 
 for arg in "$@"; do
