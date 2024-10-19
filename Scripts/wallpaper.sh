@@ -11,48 +11,38 @@ for arg in "$@"; do
     esac
 done
 
-while [ "$#" -gt 0 ]; do
-    case "$1" in
-        --nsfw) ;;
-        
-        random)
-            if [ "$isNsfw" = true ]; then
-                randomWallpaper=$(ls ~/Pictures/Wallpaper/*NS.png | shuf -n 1)
-            else
-                randomWallpaper=$(ls ~/Pictures/Wallpaper/*.png | grep -vE NS.png | shuf -n 1)
-            fi
+case "$1" in
+    random)
+        if [ "$isNsfw" = true ]; then
+            randomWallpaper=$(ls ~/Pictures/Wallpapers/*NS.png | shuf -n 1)
+        else
+            randomWallpaper=$(ls ~/Pictures/Wallpapers/*.png | grep -vE NS.png | shuf -n 1)
+        fi
 
-            hyprctl hyprpaper unload all
-            hyprctl hyprpaper preload "$randomWallpaper"
-            hyprctl hyprpaper wallpaper ", $randomWallpaper"
-
-            break
-        ;;
-        
-        set)
-            if [ -z "$2" ]; then
-                echo "No file path was specified"
-                break
-            elif [ ! -f "$2" ]; then
-                echo "Not a file"
-                break
-            elif [[ ! "$2" =~ .(jpg|jpeg|png|gif|bmp|tiff) ]]; then
-                echo "Not an image"
-                break
-            fi
-
-            hyprctl hyprpaper unload all
-            hyprctl hyprpaper preload "~/$2"
-            hyprctl hyprpaper wallpaper ", ~/$2"
-
-            break
-        ;;
-
-        *)
-            echo Unknown parameter
-            break
-        ;;
-    esac
+        cp $randomWallpaper ~/Pictures/CurrentWallpaper.png
+    ;;
     
-    shift
-done
+    set)
+        if [ -z "$2" ]; then
+            echo "No file path was specified"
+            exit
+        elif [ ! -f "$2" ]; then
+            echo "Not a file"
+            exit
+        elif [[ ! "$2" =~ .(jpg|jpeg|png|gif|bmp|tiff) ]]; then
+            echo "Not an image"
+            exit
+        fi
+
+        cp $2 ~/Pictures/CurrentWallpaper.png
+    ;;
+
+    *)
+        echo Unknown parameter
+        exit
+    ;;
+esac
+
+hyprctl hyprpaper unload all
+hyprctl hyprpaper preload "~/Pictures/CurrentWallpaper.png"
+hyprctl hyprpaper wallpaper ", ~/Pictures/CurrentWallpaper.png"

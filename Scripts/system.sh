@@ -1,5 +1,6 @@
 if [ $# = 0 ]; then
     echo There is no parameters
+    exit
 fi
 
 while [ "$#" -gt 0 ]; do
@@ -11,7 +12,7 @@ while [ "$#" -gt 0 ]; do
         --headset-battery)
             # Just because Arctis Nova Pro Wireless is shit
             falseCapacity=$(bluetoothctl info 28:9A:4B:FA:A4:69 | grep Percentage | awk '{print $4}' | tr -d '()')
-            echo $(((falseCapacity - 20) * 100 / 80))
+            echo $(((falseCapacity - 15) * 100 / 80))
         ;;
 
         *)

@@ -1,6 +1,6 @@
 (deflisten media :initial "" "playerctl -F metadata -f '{{ artist }} - {{ title }}' || true")
-(defpoll headset-battery-capacity :interval "30s" "~/system.sh --headset-battery") 
-(defpoll brightness :interval "30s" "~/system.sh --brightness")
+(defpoll headset-battery-capacity :interval "30s" "~/Scripts/system.sh --headset-battery") 
+(defpoll brightness :interval "30s" "~/Scripts/system.sh --brightness")
 (defpoll time :interval "1s" "date +%T")
 (defpoll date :interval "24h" "date +%Y.%m.%d")
 
@@ -22,6 +22,7 @@
         :class "circular-bar"
         :thickness 4
         :tooltip "Charge: ${EWW_BATTERY["BAT0"].capacity}% [${EWW_BATTERY["BAT0"].status}]"
+        :visible { EWW_BATTERY["BAT0"].capacity < 0 ? false : true }
         :width 48
         "${EWW_BATTERY["BAT0"].capacity}"
     )
@@ -33,7 +34,7 @@
         :class "circular-bar"
         :thickness 4
         :tooltip "Charge: ${headset-battery-capacity}%"
-        :visible { headset-battery-capacity == -25 ? false : true }
+        :visible { headset-battery-capacity < 0 ? false : true }
         "${headset-battery-capacity}"
     )
 )
