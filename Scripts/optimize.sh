@@ -1,1 +1,1 @@
-sudo pacman -Qqtd | sudo pacman -Rnsu -
+sudo pacman -Rnsu $(pacman -Qqtd)
