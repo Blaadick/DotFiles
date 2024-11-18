@@ -12,6 +12,8 @@
         :class "circular-bar"
         :thickness 4
         :tooltip "Brightness: ${brightness}%"
+        :visible { brightness == 0 ? false : true }
+        :width 48
         "${brightness}"
     )
 )
@@ -22,8 +24,7 @@
         :class "circular-bar"
         :thickness 4
         :tooltip "Charge: ${EWW_BATTERY["BAT0"].capacity}% [${EWW_BATTERY["BAT0"].status}]"
-        :visible { EWW_BATTERY["BAT0"].capacity < 0 ? false : true }
-        :width 48
+        :visible { EWW_BATTERY == "" ? false : true }
         "${EWW_BATTERY["BAT0"].capacity}"
     )
 )

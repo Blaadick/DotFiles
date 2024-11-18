@@ -1,13 +1,10 @@
 sudo pacman -Syu
-sudo pacman -S hyprpaper wl-clipboard xdg-desktop-portal-hyprland brightnessctl playerctl git grim slurp flatpak nwg-look blueman code nautilus firefox torbrowser-launcher steam prismlauncher btop ttf-jetbrains-mono cups cups-pdf gutenprint
+sudo pacman -S fish fastfetch neovim github-cli eww hyprpaper wl-clipboard xdg-desktop-portal-hyprland brightnessctl playerctl git grim slurp flatpak p7zip nwg-look loupe blueman code nautilus firefox torbrowser-launcher steam qbittorrent prismlauncher btop ttf-jetbrains-mono cups cups-pdf gutenprint
 sudo pacman -Rns dolphin vim htop
 
 flatpak install flathub net.blockbench.Blockbench
 
-sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"
-
-cd /var/lib
-sudo git clone https://aur.archlinux.org/yay.git
+git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd
@@ -19,7 +16,10 @@ omf install bobthefish
 
 cd ~/DotFiles
 cp -a Configs/* ~/.config
+cp -a Icons/* ~/.icons
 cp -a Pictures/* ~/Pictures
+mkdir ~/Scripts
+cp -a Scripts/* ~/Scripts
 cd
 
 cd ~/.local/share
