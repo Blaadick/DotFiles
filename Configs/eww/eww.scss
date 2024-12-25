@@ -1,32 +1,22 @@
-$bacground: #000000;
-$first-accent: #ffffff;
-
-// $bacground: #ffffff;
-// $first-accent: #000000;
+$bacground: black;
+$first-accent: white;
 
 * {
     all: unset;
+    border-radius: 10px;
     font-family: JetbrainsMono;
     color: $first-accent;
 }
 
 tooltip {
     background-color: rgba($bacground, 0.8);
-    border-radius: 10;
 }
 
 .circular-bar {
     background-color: rgba($first-accent, 0.15);
 }
 
-.bar {
+.bar{
     background-color: rgba($bacground, 0.29);
-    border-radius: 10;
-    padding: 0.4em;
-}
-
-.second-bar {
-    background-color: rgba($bacground, 0.29);
-    border-radius: 10;
     padding: 0.4em;
 }

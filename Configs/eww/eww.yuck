@@ -1,102 +1,10 @@
-(deflisten media :initial "" "playerctl -F metadata -f '{{ artist }} - {{ title }}' || true")
-(defpoll headset-battery-capacity :interval "30s" "~/Scripts/system.sh --headset-battery") 
-(defpoll brightness :interval "30s" "~/Scripts/system.sh --brightness")
-(defpoll time :interval "1s" "date +%T")
-(defpoll date :interval "24h" "date +%Y.%m.%d")
-
-
-
-(defwidget brightness []
-    (circular-progress
-        :value brightness
-        :class "circular-bar"
-        :thickness 4
-        :tooltip "Brightness: ${brightness}%"
-        :visible { brightness == 0 ? false : true }
-        :width 48
-        "${brightness}"
-    )
-)
-
-(defwidget battery []
-    (circular-progress
-        :value {EWW_BATTERY["BAT0"].capacity}
-        :class "circular-bar"
-        :thickness 4
-        :tooltip "Charge: ${EWW_BATTERY["BAT0"].capacity}% [${EWW_BATTERY["BAT0"].status}]"
-        :visible { EWW_BATTERY == "" ? false : true }
-        "${EWW_BATTERY["BAT0"].capacity}"
-    )
-)
-
-(defwidget headset-battery []
-    (circular-progress
-        :value headset-battery-capacity
-        :class "circular-bar"
-        :thickness 4
-        :tooltip "Charge: ${headset-battery-capacity}%"
-        :visible { headset-battery-capacity < 0 ? false : true }
-        "${headset-battery-capacity}"
-    )
-)
-
-(defwidget date-time []
-    (label
-        :text "${time}
-${date}"
-        :justify "right"
-    )
-)
-
-
-
-(defwidget left []
-    (box
-        :halign "start"
-        (brightness)
-        (battery)
-        (headset-battery)
-    )
-)
-
-(defwidget center []
-    (box
-        :halign "center"
-        "${media}"
-    )
-)
-
-(defwidget right []
-    (box
-        :halign "end"
-        :width 100
-        (date-time)
-    )
-)
-
-
+(include "./bar/left.yuck")
+(include "./bar/center.yuck")
+(include "./bar/right.yuck")
 
 (defwindow bar
     :monitor 0
-    :stacking "fg"
-    :exclusive true
-    :namespace "eww"
-    :geometry (geometry
-        :y "10px"
-        :width "99%"
-        :height "5%"
-        :anchor "bottom center"
-    )
-    (box
-        (left)
-        (center)
-        (right)
-    )
-)
-
-(defwindow second-bar
-    :monitor 1
-    :stacking "fg"
+    :stacking "bg"
     :exclusive true
     :namespace "eww"
     :geometry (geometry

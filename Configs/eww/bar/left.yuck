@@ -1,0 +1,45 @@
+(defpoll headset-battery-capacity :interval "30s" "~/Scripts/system.sh --headset-battery") 
+(defpoll brightness :interval "30s" "~/Scripts/system.sh --brightness")
+
+(defwidget brightness []
+    (circular-progress
+        :value brightness
+        :class "circular-bar"
+        :thickness 4
+        :tooltip "Brightness: ${brightness}%"
+        :visible { brightness == 0 ? false : true }
+        :width 48
+        "${brightness}"
+    )
+)
+
+(defwidget battery []
+    (circular-progress
+        :value {EWW_BATTERY.BAT0.capacity}
+        :class "circular-bar"
+        :thickness 4
+        :tooltip "Charge: ${EWW_BATTERY.BAT0.capacity}% [${EWW_BATTERY.BAT0.status}]"
+        :visible { EWW_BATTERY == "" ? false : true }
+        "${EWW_BATTERY.BAT0.capacity}"
+    )
+)
+
+(defwidget headset-battery []
+    (circular-progress
+        :value headset-battery-capacity
+        :class "circular-bar"
+        :thickness 4
+        :tooltip "Charge: ${headset-battery-capacity}%"
+        :visible { headset-battery-capacity < 0 ? false : true }
+        "${headset-battery-capacity}"
+    )
+)
+
+(defwidget left []
+    (box
+        :halign "start"
+        (brightness)
+        (battery)
+        (headset-battery)
+    )
+)
