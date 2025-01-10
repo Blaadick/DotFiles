@@ -1,19 +1,15 @@
-# Packages
+# Apps
 fish
 fastfetch
 neovim
 github-cli
 hyprpaper
 wl-clipboard
-xdg-desktop-portal-hyprland
-brightnessctl
-playerctl
 git
 grim
 slurp
 flatpak
-p7zip
-nwg-look
+7zip
 loupe
 blueman
 code
@@ -24,8 +20,17 @@ steam
 qbittorrent
 prismlauncher
 btop
-ttf-jetbrains-mono
 cups
 cups-pdf
 gutenprint
+
+# Visual
+ttf-jetbrains-mono
+nwg-look
+
+# Additional
+xdg-desktop-portal-hyprland
+brightnessctl
+playerctl
+openal
 flite

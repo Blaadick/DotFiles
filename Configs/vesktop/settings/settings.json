@@ -368,7 +368,9 @@
             "chatMentions": true,
             "memberList": true,
             "voiceUsers": true,
-            "reactorsList": true
+            "reactorsList": true,
+            "pollResults": true,
+            "colorChatMessages": false
         },
         "SecretRingToneEnabler": {
             "enabled": false
@@ -665,7 +667,8 @@
             "enabled": true
         },
         "AccountPanelServerProfile": {
-            "enabled": false
+            "enabled": true,
+            "prioritizeServerProfile": true
         },
         "WebRichPresence (arRPC)": {
             "enabled": false
@@ -675,6 +678,19 @@
         },
         "FixImagesQuality": {
             "enabled": false
+        },
+        "StickerPaste": {
+            "enabled": false
+        },
+        "WebKeybinds": {
+            "enabled": true
+        },
+        "WebScreenShareFixes": {
+            "enabled": true
+        },
+        "WebContextMenus": {
+            "enabled": true,
+            "addBack": true
         }
     },
     "notifications": {
@@ -687,7 +703,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1729806749425
+        "settingsSyncVersion": 1735585078403
     },
     "notifyAboutUpdates": true
 }

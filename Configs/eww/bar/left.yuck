@@ -1,5 +1,4 @@
-(defpoll headset-battery-capacity :interval "30s" "~/Scripts/system.sh --headset-battery") 
-(defpoll brightness :interval "30s" "~/Scripts/system.sh --brightness")
+(defpoll brightness :interval "1s" "echo $(($(brightnessctl g) / 480))")
 
 (defwidget brightness []
     (circular-progress
@@ -24,22 +23,10 @@
     )
 )
 
-(defwidget headset-battery []
-    (circular-progress
-        :value headset-battery-capacity
-        :class "circular-bar"
-        :thickness 4
-        :tooltip "Charge: ${headset-battery-capacity}%"
-        :visible { headset-battery-capacity < 0 ? false : true }
-        "${headset-battery-capacity}"
-    )
-)
-
 (defwidget left []
     (box
         :halign "start"
         (brightness)
         (battery)
-        (headset-battery)
     )
 )
