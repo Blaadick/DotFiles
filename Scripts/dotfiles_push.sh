@@ -10,6 +10,7 @@ cp -a ~/.config/eww/ ~/DotFiles/Configs/
 cp -a ~/.config/fastfetch/ ~/DotFiles/Configs/
 cp -a ~/.config/hypr/ ~/DotFiles/Configs/
 cp -a ~/.config/kitty/ ~/DotFiles/Configs/
+cp -a ~/.config/nvim/ ~/DotFiles/Configs/
 cp -a ~/.config/vesktop/settings ~/DotFiles/Configs/vesktop/settings/
 cp -a ~/.config/fish/config.fish ~/DotFiles/Configs/fish/
 
