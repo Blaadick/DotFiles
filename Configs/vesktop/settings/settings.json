@@ -181,9 +181,6 @@
         "GreetStickerPicker": {
             "enabled": false
         },
-        "HideAttachments": {
-            "enabled": false
-        },
         "iLoveSpam": {
             "enabled": false
         },
@@ -231,7 +228,8 @@
             "ignoreGuilds": "",
             "logEdits": true,
             "logDeletes": true,
-            "collapseDeleted": false
+            "collapseDeleted": false,
+            "inlineEdits": true
         },
         "MessageTags": {
             "enabled": false
@@ -307,7 +305,8 @@
             "spotify": true,
             "steam": true,
             "epic": true,
-            "tidal": true
+            "tidal": true,
+            "itunes": true
         },
         "PermissionFreeWill": {
             "enabled": false
@@ -364,13 +363,14 @@
             "enabled": false
         },
         "RoleColorEverywhere": {
-            "enabled": true,
+            "enabled": false,
             "chatMentions": true,
             "memberList": true,
             "voiceUsers": true,
             "reactorsList": true,
             "pollResults": true,
-            "colorChatMessages": false
+            "colorChatMessages": false,
+            "messageSaturation": 30
         },
         "SecretRingToneEnabler": {
             "enabled": false
@@ -441,7 +441,21 @@
             "superReactionPlayingLimit": 20
         },
         "TextReplace": {
-            "enabled": true
+            "enabled": true,
+            "stringRules": [
+                {
+                    "find": "",
+                    "replace": "",
+                    "onlyIfIncludes": ""
+                }
+            ],
+            "regexRules": [
+                {
+                    "find": "",
+                    "replace": "",
+                    "onlyIfIncludes": ""
+                }
+            ]
         },
         "ThemeAttributes": {
             "enabled": false
@@ -691,6 +705,15 @@
         "WebContextMenus": {
             "enabled": true,
             "addBack": true
+        },
+        "FullUserInChatbox": {
+            "enabled": false
+        },
+        "IrcColors": {
+            "enabled": false
+        },
+        "HideMedia": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -703,7 +726,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1735585078403
+        "settingsSyncVersion": 1738951773657
     },
     "notifyAboutUpdates": true
 }

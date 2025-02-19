@@ -6,3 +6,5 @@ function fish_greeting
 end
 
 fastfetch
+
+[ -s "/home/blaadick/.jabba/jabba.fish" ]; and source "/home/blaadick/.jabba/jabba.fish"
