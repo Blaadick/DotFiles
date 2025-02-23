@@ -301,7 +301,7 @@
             "enabled": false
         },
         "OpenInApp": {
-            "enabled": true,
+            "enabled": false,
             "spotify": true,
             "steam": true,
             "epic": true,
@@ -398,7 +398,7 @@
             "iconSpacing": 1
         },
         "ShowHiddenChannels": {
-            "enabled": true,
+            "enabled": false,
             "showMode": 0,
             "hideUnreads": true,
             "defaultAllowedUsersAndRolesDropdownState": true
@@ -441,7 +441,7 @@
             "superReactionPlayingLimit": 20
         },
         "TextReplace": {
-            "enabled": true,
+            "enabled": false,
             "stringRules": [
                 {
                     "find": "",
@@ -545,7 +545,7 @@
             "enabled": false
         },
         "BetterRoleContext": {
-            "enabled": true
+            "enabled": false
         },
         "FriendsSince": {
             "enabled": false
@@ -688,7 +688,7 @@
             "enabled": false
         },
         "CopyFileContents": {
-            "enabled": false
+            "enabled": true
         },
         "FixImagesQuality": {
             "enabled": false
@@ -697,7 +697,7 @@
             "enabled": false
         },
         "WebKeybinds": {
-            "enabled": true
+            "enabled": false
         },
         "WebScreenShareFixes": {
             "enabled": true
@@ -726,7 +726,8 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1738951773657
+        "settingsSyncVersion": 1740247449734
     },
-    "notifyAboutUpdates": true
+    "notifyAboutUpdates": true,
+    "eagerPatches": false
 }

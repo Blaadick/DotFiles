@@ -1,36 +1,40 @@
-# Apps
-fish
-fastfetch
-neovim
-github-cli
+# Necessary packages
 hyprpaper
+hyprlock
+hypridle
+hyprpicker
 wl-clipboard
-git
 grim
 slurp
-flatpak
-7zip
-loupe
-blueman
+brightnessctl
+playerctl
+ttf-jetbrains-mono
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+noto-fonts-extra
+
+# Unnecessary packages
 code
-nautilus
 firefox
 torbrowser-launcher
 steam
 qbittorrent
 prismlauncher
+nwg-look
+nautilus
+loupe
+blueman
+neovim
 btop
+fish
+fastfetch
+github-cli
+flatpak
+7zip
+xdg-desktop-portal-hyprland
+openal
+flite
 cups
 cups-pdf
 gutenprint
-
-# Visual
-ttf-jetbrains-mono
-nwg-look
-
-# Additional
-xdg-desktop-portal-hyprland
-brightnessctl
-playerctl
-openal
-flite
