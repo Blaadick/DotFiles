@@ -12,6 +12,8 @@ cp -a ~/.config/kitty/ ~/DotFiles/Configs/
 cp -a ~/.config/nvim/ ~/DotFiles/Configs/
 cp -a ~/.config/vesktop/settings ~/DotFiles/Configs/vesktop/settings/
 cp -a ~/.config/fish/config.fish ~/DotFiles/Configs/fish/
+cp -a ~/.config/fontconfig/ ~/DotFiles/Configs/
+
 cp -a ~/.config/hyprswitch.css ~/DotFiles/Configs/
 
 cp -a ~/.icons/* ~/DotFiles/Icons/
