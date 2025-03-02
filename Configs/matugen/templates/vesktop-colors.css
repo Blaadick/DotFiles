@@ -1,0 +1,10 @@
+/* Generated with Matugen */
+
+:root {
+    --main-color: {{colors.primary.default.rgb}};
+    --hover-color: {{colors.primary_container.default.rgb}};
+    --danger-color: {{colors.error.default.rgb}};
+    --background-overlay: rgba({{colors.surface.default.red}}, {{colors.surface.default.green}}, {{colors.surface.default.blue}}, 0.5);
+    --background-image: url();
+    --background-shading: 0%;
+}

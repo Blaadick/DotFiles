@@ -1,5 +1,10 @@
+/* Generated with Matugen */
+
 :root {
-    --background-overlay: rgba(0, 0, 0, 0.5);
+    --main-color: rgb(129, 211, 223);
+    --hover-color: rgb(0, 79, 87);
+    --danger-color: rgb(255, 180, 171);
+    --background-overlay: rgba(14, 20, 21, 0.5);
     --background-image: url();
     --background-shading: 0%;
 }

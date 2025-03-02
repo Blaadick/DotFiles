@@ -56,3 +56,5 @@ hyprctl hyprpaper wallpaper ", ~/Pictures/CurrentWallpaper.png"
 if [[ $silent == false ]]; then
     hyprctl notify 5 2000 0 "Wallpaper $wallpaperName set!"
 fi
+
+matugen image ~/Pictures/CurrentWallpaper.png

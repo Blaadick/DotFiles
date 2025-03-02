@@ -1,6 +1,7 @@
 # Necessary packages
 eww
 hyprswitch
+matugen-bin
 
 # Unnecessary packages
 jetbrains-toolbox

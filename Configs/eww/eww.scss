@@ -1,22 +1,21 @@
-$bacground: black;
-$first-accent: white;
+@import "colors.scss";
 
 * {
     all: unset;
     border-radius: 10px;
     font-family: JetbrainsMono;
-    color: $first-accent;
+    color: $on_surface;
 }
 
 tooltip {
-    background-color: rgba($bacground, 0.8);
+    background-color: rgba($background, 0.8);
 }
 
 .circular-bar {
-    background-color: rgba($first-accent, 0.15);
+    background-color: rgba($on_surface, 0.15);
 }
 
 .bar {
-    background-color: rgba($bacground, 0.499);
+    background-color: rgba($background, 0.499);
     padding: 0.4em;
 }
