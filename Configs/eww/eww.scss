@@ -2,8 +2,7 @@
 
 * {
     all: unset;
-    border-radius: 10px;
-    font-family: JetbrainsMono;
+    font-family: monospace;
     color: $on_surface;
 }
 
@@ -13,6 +12,24 @@ tooltip {
 
 .circular-bar {
     background-color: rgba($on_surface, 0.15);
+}
+
+.battery-charging {
+    color: $primary;
+    background-color: rgba($primary, 0.15);
+
+    label {
+        color: $primary;
+    }
+}
+
+.battery-low {
+    color: $error;
+    background-color: rgba($error, 0.15);
+
+    label {
+        color: $error;
+    }
 }
 
 .bar {

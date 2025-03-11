@@ -1,10 +1,13 @@
 /* Generated with Matugen */
 
 :root {
-    --main-color: rgb(129, 211, 223);
-    --hover-color: rgb(0, 79, 87);
+    --main-color: rgb(53, 68, 121);
+    --hover-color: rgb(182, 196, 255);
     --danger-color: rgb(255, 180, 171);
-    --background-overlay: rgba(14, 20, 21, 0.5);
+    --url-color: var(--hover-color);
+    --focus-color: var(--hover-color);
+
+    --background-overlay: rgba(18, 19, 24, 0.5);
     --background-image: url();
     --background-shading: 0%;
 }
