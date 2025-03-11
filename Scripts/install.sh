@@ -1,5 +1,5 @@
 sudo pacman -Syu
-sudo pacman -S $(cat aur_official_packages.lst | grep -v "#")
+sudo pacman -S $(cat ~/DotFiles/Scripts/aur_official_packages.lst | grep -v "#")
 sudo pacman -Rns dolphin vim htop
 
 flatpak install flathub net.blockbench.Blockbench
@@ -9,9 +9,9 @@ cd ~/yay
 makepkg -si
 cd
 
-yay -S $(cat aur_unofficial_packages.lst | grep -v "#")
+yay -S $(cat ~/DotFiles/Scripts/aur_unofficial_packages.lst | grep -v "#")
 
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish &
 omf install bobthefish
 
 cd ~/DotFiles
